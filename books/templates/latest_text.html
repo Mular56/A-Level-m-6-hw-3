@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    
+    <h1>Latest Comments Text</h1>
+    <ul>
+        {% for comment_text in latest_text %}
+            <li>{{ comment_text }}</li>
+        {% endfor %}
+    </ul>
+    
+{% endblock %}

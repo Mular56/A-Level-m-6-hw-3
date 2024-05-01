@@ -1,0 +1,14 @@
+{% extends 'home.html' %}
+
+{% block content %}
+<div class="login-form">
+    <h2>Увійти</h2>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Увійти</button>
+    </form>
+    <p>Не маєте облікового запису? <a href="{% url 'register' %}">Зареєструйтесь</a></p>
+    <p>Забули пароль? <a href="{% url 'change_password' %}">Скинути пароль</a></p>
+</div>
+{% endblock %}

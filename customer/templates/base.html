@@ -1,0 +1,68 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flower Shop</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">Flower shop</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'products' %}">Goods</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Shopping cart</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'signup' %}">Sign up</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'login' %}">Log in</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+{% block content %}
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-md-6">
+                <img src="{% static 'customer/images/first_page.jpg' %}" alt="Зображення квітів" class="img-fluid">
+            </div>
+            <div class="col-md-6">
+                <h2>Welcome to the flower shop!</h2>
+                <p>In our store you will find the best flowers from the freshest bouquets. We offer a wide selection of flowers for any occasion, from personal greetings to office decorations.</p>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+    <footer class="footer mt-auto py-3 bg-light">
+		<div class="container">
+			<div class="row">
+				<div class="col-12">
+					<span class="text-muted">by Victoria Mulyar</span>
+				</div>
+				<div class="col-12">
+					<span class="text-muted">© 2024 Flower shop. All rights reserved.</span>
+				</div>
+			</div>
+		</div>
+	</footer>
+	
+
+    <!-- Підключення скриптів Bootstrap та jQuery -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

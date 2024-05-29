@@ -40,6 +40,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'customer',
+    'admin_panel',
+    'transactions',
 ]
 
 MIDDLEWARE = [
@@ -134,3 +136,7 @@ MEDIA_URL = '/images/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'customer/static'),
 ]
+
+LOGIN_REDIRECT_URL = 'after_login'
+
+AUTH_USER_MODEL = 'auth.User'

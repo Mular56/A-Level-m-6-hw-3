@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    
+    <h1>Latest Comments</h1>
+    <ul>
+        {% for comment in latest_comments %}
+            <li><h2>{{ comment.text }} </h2> by {{ comment.user }}  ({{ comment.created_at }})</li>
+        {% endfor %}
+    </ul>
+    
+{% endblock %}

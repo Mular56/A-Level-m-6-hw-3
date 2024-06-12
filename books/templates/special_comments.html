@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>Updated Start Comments</h1>
+    <ul>
+        {% for comment in updated_comments %}
+            <li style="color: green;">{{ comment.text }}</li>
+        {% endfor %}
+    </ul>
+{% endblock %}

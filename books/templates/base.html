@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Comments</title>
+</head>
+<body>
+    <h1 style="background-color: thistle" >Comments</h1>
+    {% block content %}
+
+    {% endblock %}
+
+    <div style="background-color: thistle">
+        <ul>
+            <li><a href="{% url 'base_page' %}">Base page</a></li>
+            <li><a href="{% url 'create_comments' %}">Comments created (task 1)</a></li>
+            <li><a href="{% url 'latest_comments' %}">Latest Comments (task 2)</a></li>
+            <li><a href="{% url 'latest_text' %}">Comments Text(task 3)</a></li>
+            <li><a href="{% url 'special_comments' %}">Updated Comments(task 4)</a></li>
+            <li><a href="{% url 'delete_comments' %}">Delete Comments(task 5)</a></li>
+            <li><a href="{% url 'latest_article_comments' %}">Latest Article Comment(task 6)</a></li>
+        </ul>
+    </div>
+
+</body>
+</html>

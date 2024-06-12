@@ -42,6 +42,8 @@ INSTALLED_APPS = [
     'customer',
     'admin_panel',
     'transactions',
+    
+    'rest_framework',
 ]
 
 MIDDLEWARE = [

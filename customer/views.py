@@ -2,9 +2,15 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.views.generic import CreateView, FormView, ListView
 from django.urls import reverse_lazy
-from .models import Product, Customer
+from .models import Product, Customer, Order
 from django.contrib.auth import login
 from django.contrib.auth.decorators import login_required
+
+from rest_framework import viewsets
+from django.contrib.auth.models import User
+from rest_framework.response import Response
+from rest_framework.decorators import action
+from .serializers import UserSerializer, ProductSerializer, OrderSerializer, CustomerSerializer
 
 
 def index(request):
@@ -78,4 +84,31 @@ def personal_cabinet(request):
     # Тут ви можете використовувати 'customer' для передачі даних у шаблон
 
     return render(request, 'personal_cabinet.html', {'customer': customer})
-    
+
+
+class UserViewSet(viewsets.ModelViewSet):
+    queryset = User.objects.all()
+    serializer_class = UserSerializer
+
+    @action(detail=False, methods=['get'])
+    def by_wallet(self, request):
+        amount = request.query_params.get('amount', None)
+        if amount is not None:
+            amount = float(amount)
+            users = User.objects.filter(customer__wallet__gte=amount)
+        else:
+            users = User.objects.all()
+        serializer = self.get_serializer(users, many=True)
+        return Response(serializer.data)
+
+class CustomerViewSet(viewsets.ModelViewSet):
+    queryset = Customer.objects.all()
+    serializer_class = CustomerSerializer
+
+class ProductViewSet(viewsets.ModelViewSet):
+    queryset = Product.objects.all()
+    serializer_class = ProductSerializer
+
+class OrderViewSet(viewsets.ModelViewSet):
+    queryset = Order.objects.all()
+    serializer_class = OrderSerializer

@@ -1,5 +1,6 @@
 from django.db import models
 from django.utils import timezone
+from django.contrib.auth.models import User
 
 class Comments(models.Model):
     START = 'start'
@@ -15,7 +16,7 @@ class Comments(models.Model):
     ]
 
     text = models.TextField()
-    user = models.CharField(max_length=255)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
     created_at = models.DateTimeField(auto_now_add=True)
     comment_type = models.CharField(max_length=220, choices=COMMENT_TYPES, default=START)
 

@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+    <h1>Welcome to Your Personal Cabinet</h1>
+    <p>Username: {{ customer.user.username }}</p>
+    <p>Email: {{ customer.user.email }}</p>
+    <p>Wallet Balance: ${{ customer.wallet }}</p>
+{% endblock%}
